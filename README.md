@@ -2,6 +2,9 @@
 
 浙江大学课程大作业/结课汇报的通用简易 $\LaTeX$ 模板
 
+![screenshot](figures/screen-shot-1.png)
+![screenshot](figures/screen-shot-2.png)
+
 ## Quick Start
 
 1. 克隆仓库到本地：
