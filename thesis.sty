@@ -80,12 +80,29 @@
 \newcommand{\thesisexpdate}[1]{\gdef\@thesisexpdate{#1}}
 \newcommand{\thesisteacher}[1]{\gdef\@thesisteacher{#1}}
 
+% 简化设置命令别名
+\let\expname\thesisexpname
+\let\explocation\thesisexplocation
+\let\studentname\thesisstudentname
+\let\studentid\thesisstudentid
+\let\expdate\thesisexpdate
+\let\teacher\thesisteacher
+
 \newcommand{\printthesisexpname}{\@thesisexpname}
 \newcommand{\printthesisexplocation}{\@thesisexplocation}
 \newcommand{\printthesisstudentname}{\@thesisstudentname}
 \newcommand{\printthesisstudentid}{\@thesisstudentid}
 \newcommand{\printthesisexpdate}{\@thesisexpdate}
 \newcommand{\printthesisteacher}{\@thesisteacher}
+
+% 简化命令别名
+\let\printclass\printclassname
+\let\printexpname\printthesisexpname
+\let\printlocation\printthesisexplocation
+\let\printname\printthesisstudentname
+\let\printid\printthesisstudentid
+\let\printdate\printthesisexpdate
+\let\printteacher\printthesisteacher
 
 \newcommand{\thesis@ifblank}[3]{%
     \if\relax\detokenize{#1}\relax

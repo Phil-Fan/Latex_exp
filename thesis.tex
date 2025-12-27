@@ -1,5 +1,5 @@
 \PassOptionsToPackage{quiet}{fontspec}
-\documentclass[12pt,a4paper,UTF8]{article}
+\documentclass[12pt,a4paper]{article}
 \usepackage{thesis} % 格式控制
 \usepackage{indentfirst}
 \setlength{\parindent}{2em} % 控制首行缩进  
@@ -9,13 +9,10 @@
 
 
 \InputIfFileExists{config.tex}{}{\errmessage{Missing config.tex}}
-\makepagestyle{}{\printclassname ~实验报告}
-
-
-
+\makepagestyle{\printname\ \printid}{\printclass ~实验报告}
 
 \begin{document}
-\maketitlepage{\printthesisexpname}{\printthesisexplocation}{\printthesisstudentname}{\printthesisstudentid}{\printthesisexpdate}{\printthesisteacher} %封面页 
+\maketitlepage{\printexpname}{\printlocation}{\printname}{\printid}{\printdate}{\printteacher} %封面页 
 
 \maketoc    %目录页
 \section{实验目的和要求}
@@ -68,9 +65,24 @@ def hello_world():
 \section{附录1：文档结构}
 
 \begin{lstlisting}
+Latex_exp/
+├── thesis.tex          # 主文件，包含报告正文
+├── thesis.sty          # 文档格式控制，包括页面设置、样式定义等
+├── config.tex          # 配置文件，包含个人信息、课程名称等设置
+├── ref.bib             # 参考文献列表
+├── Makefile            # 编译脚本
+├── figures/            # 图片文件夹
+│   ├── char.png        # 字符图片
+│   ├── example.png     # 示例图片
+│   └── logo.png        # ZJU LOGO
+├── thesis.pdf          # 生成的 PDF 文件（编译后自动复制到根目录）
+├── build/              # 编译输出目录（自动生成，包含所有辅助文件）
+└── README.md           # 项目说明文档
 \end{lstlisting}
 
-
+\clearpage
 \section{附录2：版本更新记录}
+
+\clearpage
 \reference
 \end{document}

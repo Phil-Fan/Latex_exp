@@ -17,11 +17,11 @@
     make
     ```
 
-编译完成后，生成的 PDF 文件为 `thesis.pdf`。
+编译完成后，生成的 PDF 文件位于根目录的 `thesis.pdf`（同时也会保留在 `build/thesis.pdf`）。
 
 其他常用命令：
 
-- `make clean` - 清理编译生成的临时文件
+- `make clean` - 清理 build 目录中的所有编译生成文件
 - `make help` - 查看所有可用的 make 命令
 
 ## 结构
@@ -38,7 +38,9 @@ Latex_exp/
 ├── figures/            # 图片文件夹
 │   ├── char.png        # 字符图片
 │   ├── example.png     # 示例图片
-│   └── logo.png        # 院校 LOGO
+│   └── logo.png        # ZJU LOGO
+├── thesis.pdf          # 生成的 PDF 文件（编译后自动复制到根目录）
+├── build/              # 编译输出目录（自动生成，包含所有辅助文件）
 └── README.md           # 项目说明文档
 ```
 
@@ -53,6 +55,8 @@ Latex_exp/
   - 指导老师
 - **ref.bib** - BibTeX 参考文献数据库
 - **figures/** - 存放图片资源的文件夹
+- **thesis.pdf** - 编译生成的 PDF 文件（位于根目录，方便访问）
+- **build/** - 编译输出目录，包含所有辅助文件（.aux, .log, .bbl 等）和 PDF 副本（由 Makefile 自动创建）
 
 ### 使用步骤
 

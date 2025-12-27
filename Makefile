@@ -1,16 +1,21 @@
 TARGET = thesis
 SRC = $(TARGET).tex
-PDF = $(TARGET).pdf
+BUILD_DIR = build
+PDF = $(BUILD_DIR)/$(TARGET).pdf
 
 .PHONY: all clean
 
 all: $(PDF)
 
-$(PDF): $(SRC)
-	xelatex -interaction=nonstopmode $(SRC)
-	xelatex -interaction=nonstopmode $(SRC)
-	bibtex $(TARGET)
-	xelatex -interaction=nonstopmode $(SRC)
+$(BUILD_DIR):
+	mkdir -p $(BUILD_DIR)
+
+$(PDF): $(SRC) | $(BUILD_DIR)
+	xelatex -interaction=nonstopmode -output-directory=$(BUILD_DIR) $(SRC)
+	xelatex -interaction=nonstopmode -output-directory=$(BUILD_DIR) $(SRC)
+	cd $(BUILD_DIR) && BIBINPUTS=..: bibtex $(TARGET)
+	xelatex -interaction=nonstopmode -output-directory=$(BUILD_DIR) $(SRC)
+	cp $(PDF) $(TARGET).pdf
 
 init: renew clean
 
@@ -19,11 +24,11 @@ renew:
 
 
 clean:
-	rm -f $(TARGET).aux $(TARGET).log $(TARGET).out $(TARGET).toc $(TARGET).synctex.gz $(TARGET).bbl $(TARGET).blg
-	rm -f *.pdf
+	rm -rf $(BUILD_DIR)
+	rm -f $(TARGET).pdf
 	
 help:
 	@echo "Makefile Help:"
-	@echo "  all    - Build the PDF document using xelatex."
-	@echo "  clean  - Remove auxiliary files generated during the build process."
+	@echo "  all    - Build the PDF document using xelatex (outputs to build/ and copies PDF to root)."
+	@echo "  clean  - Remove build directory and PDF file."
 	@echo "  help   - Display this help message."
