@@ -8,14 +8,14 @@
 \graphicspath{{./figures/}} % 指定图片所在文件夹  
 
 
-\classname{摸鱼学导论}  % 设置课程名称
+\InputIfFileExists{config.tex}{}{\errmessage{Missing config.tex}}
 \makepagestyle{}{\printclassname ~实验报告}
 
 
 
 
 \begin{document}
-\maketitlepage{名字}{地点}{PhilFan}{19260817}{\today}{老师} %封面页 
+\maketitlepage{\printthesisexpname}{\printthesisexplocation}{\printthesisstudentname}{\printthesisstudentid}{\printthesisexpdate}{\printthesisteacher} %封面页 
 
 \maketoc    %目录页
 \section{实验目的和要求}
