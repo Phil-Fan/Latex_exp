@@ -1,6 +1,7 @@
-# 实验报告 —— by PhilFan
+# 嵌入式系统实验
 
-本实验报告基于嵌入式系统实验
+![shot1](figures/screen-shot-1.png)
+![shot2](figures/screen-shot-2.png)
 
 ## 快速开始
 
