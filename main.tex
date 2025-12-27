@@ -1,0 +1,82 @@
+\documentclass[10.5pt]{config}
+% 本实验报告采用 署名-相同方式共享 4.0 国际许可协议 (CC BY-SA 4.0)
+
+\major{我的专业}
+\name{}
+\partner{partner} % 签名栏
+% \title{}
+\stuid{}
+\date{\today}
+\lab{东3-411}
+\course{嵌入式系统}
+\instructor{老师名字}
+\grades{}
+\expname{name of experiment} % 实验名字
+\exptype{type of experiment} % 实验类型
+
+\begin{document}
+
+% \maketitlepage % 封面
+% \maketoc % 目录
+\makeheader % 首页头部
+
+
+\section{实验目的}
+
+\section{实验设备}
+\begin{table}[htbp]
+      \centering
+        \begin{tabular}{ccp{20em}}
+        \toprule
+        编号    & 仪器用具名称     & 主要参数（型号，测量范围，测量精度等） \\
+        \midrule
+        1	&	PC电脑 & 需要安装Proteus 8.0 Professional\\
+        \bottomrule
+        \end{tabular}%
+        \caption{实验设备列表}
+      \label{tab:device}%
+    \end{table}%
+
+
+\section{实验原理}
+
+\clearpage
+\section{预习要求}
+
+\clearpage
+\section{实验内容}
+\subsection{实验操作方法和步骤}
+
+\subsection{实验数据记录和处理}
+
+
+\clearpage
+
+\section{实验总结}
+\subsection{实验结果与分析}
+
+\subsection{讨论、心得}
+
+\section{实验所用代码}
+\begin{lstlisting}[language=Python, caption=Python example]
+def hello_world():
+    print("Hello, world!")
+\end{lstlisting}
+
+\begin{minted}[frame=lines]{gas}
+ORG 0000H
+AJMP MAIN ； 转主程序MAIN
+ORG 000BH
+AJMP IT0P ； 转T0中断服务程序IT0P
+ORG 1000H
+MAIN: MOV SP， #60H ； 设堆栈指针
+MOV TH0 , #0E0H ； 给定时器T0送初值
+MOV TL0 , #18H ； 送定时初值
+MOV TMOD， #00H ； 设置T0为方式0， 定时
+SETB EA ； CPU开中断
+SETB ET0 ； T0允许中断
+SETB TR0 ； 启动T0定时
+HERE: SJMP HERE ； 等待中断
+\end{minted}
+
+\end{document}
